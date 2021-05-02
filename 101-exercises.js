@@ -727,12 +727,12 @@ addToDone("Exercise 46 is correct.")
 
 // Exercise 47
 // Write a function definition named startsWithVowel that takes in string and true if the string starts with a vowel
-function startWithVowel (string) {
+function startsWithVowel (string) {
 if(!isVowel(string[0])){
   return false;
-  }else {
-    return true;
-  }
+  } else {
+  return true;
+}
 }
 assert(startsWithVowel("ubuntu"), true, "Exercise 47");
 assert(startsWithVowel("banana"), false, "Exercise 47");
@@ -742,7 +742,7 @@ addToDone("Exercise 47 is correct.")
 
 // Exercise 48
 // Write a function definition named endsWithVowel that takes in string and true if the string ends with a vowel
-
+function endsWithVowel
 
 assert(endsWithVowel("ubuntu"), true, "Exercise 48");
 assert(endsWithVowel("banana"), true, "Exercise 48");
