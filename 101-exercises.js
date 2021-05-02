@@ -709,14 +709,14 @@ addToDone("Exercise 45 is correct.");
 // Exercise 46
 // Write a function definition named removeVowels that takes in string and returns the string without any vowels
 function removeVowels (string) {
-  var newStr = "";
-  for (var x = 0; x < str.length; x++) {
-    if (!isVowel(str[x])) {
-      newStr += str[x]
+  var newstring = "";
+  for (var x = 0; x < string.length; x++) {
+  if (!isVowel(string[x])) {
+  newstring += string[x]
 }      
 }
-  console.log(newStr)
-  return newStr;
+  console.log(newstring)
+  return newstring;
 }
 assert(removeVowels("banana"), "bnn", "Exercise 46");
 assert(removeVowels("ubuntu"), "bnt", "Exercise 46");
@@ -727,7 +727,13 @@ addToDone("Exercise 46 is correct.")
 
 // Exercise 47
 // Write a function definition named startsWithVowel that takes in string and true if the string starts with a vowel
-
+function startWithVowel (string) {
+if(!isVowel(string[0])){
+  return false;
+  }else {
+    return true;
+  }
+}
 assert(startsWithVowel("ubuntu"), true, "Exercise 47");
 assert(startsWithVowel("banana"), false, "Exercise 47");
 assert(startsWithVowel("mango"), false, "Exercise 47");
