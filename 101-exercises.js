@@ -743,10 +743,14 @@ addToDone("Exercise 47 is correct.")
 // Exercise 48
 // Write a function definition named endsWithVowel that takes in string and true if the string ends with a vowel
 function endsWithVowel (string) {
-  var newStr = str.split("");
-  var reverseArray = newStr.reverse();
-  var jString = reverseArray.join("");
-  
+  var newstring = string.split("");
+  var reverseArray = newstring.reverse();
+  var jstring = reverseArray.join("");
+  if(!isVowel(jstring[0])){
+    return false;
+    }else {
+      return true;
+    }
 }
 
 assert(endsWithVowel("ubuntu"), true, "Exercise 48");
@@ -758,7 +762,7 @@ addToDone("Exercise 48 is correct.")
 
 // Exercise 49
 // Write a function definition named startsAndEndsWithVowel that takes in string and returns true if the string starts and ends with a vowel
-
+function startsAndEndsWithVowel
 assert(startsAndEndsWithVowel("ubuntu"), true, "Exercise 49");
 assert(startsAndEndsWithVowel("banana"), false, "Exercise 49");
 assert(startsAndEndsWithVowel("mango"), false, "Exercise 49");
