@@ -762,7 +762,13 @@ addToDone("Exercise 48 is correct.")
 
 // Exercise 49
 // Write a function definition named startsAndEndsWithVowel that takes in string and returns true if the string starts and ends with a vowel
-function startsAndEndsWithVowel
+function startsAndEndsWithVowel (string) {
+  if(!startsWithVowel(string[0]) && !endsWithVowel(string[0])){
+   return false;
+    }else {
+      return true;
+    }
+}
 assert(startsAndEndsWithVowel("ubuntu"), true, "Exercise 49");
 assert(startsAndEndsWithVowel("banana"), false, "Exercise 49");
 assert(startsAndEndsWithVowel("mango"), false, "Exercise 49");
@@ -771,7 +777,9 @@ addToDone("Exercise 49 is correct.")
 
 // Exercise 50
 // Write a function definition named first that takes in sequence and returns the first value of that sequence.
-
+function first (input) {
+  return input[0];
+}
 assert(first("ubuntu"), "u", "Exercise 50");
 assert(first([1, 2, 3]), 1, "Exercise 50");
 assert(first(["JS", "is", "awesome"]), "JS", "Exercise 50");
