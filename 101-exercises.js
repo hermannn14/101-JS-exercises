@@ -974,19 +974,18 @@ function mean(value) {
 // Exercise 62
 // Write a function definition named median that takes in sequence of numbers and returns the average value
 function median(value) {
-//     var count = 0;
-//     value.forEach(function (input) {
-//         count += input
-//     });
-//     return count / value.length
-// }
-    var sum = 0;
-    for (var i = 0; i < elmt.length; i++) {
-        sum += parseInt(elmt[i], 10); //don't forget to add the base
-    }
+    if(value.length ===0) return 0;
 
-    var avg = sum / elmt.length;
-    return avg;
+    value.sort(function(a,b){
+        return a-b;
+    });
+
+    var half = Math.floor(value.length / 2);
+
+    if (value.length % 2)
+        return value[half];
+
+    return (value[half - 1] + value[half]) / 2.0;
 }
 
     assert(median([1, 2, 3, 4, 5]), 3.0, "Exercise 62");
@@ -998,7 +997,9 @@ function median(value) {
 
 // Exercise 63
 // Write a function definition named maxMinusMin that takes in an array of numbers and returns the difference of the maximum minus theminimum.
-
+function maxMinusMin(value) {
+return Math.max.apply(null, value) - Math.min.apply(null, value)
+}
 
     assert(maxMinusMin([1, 2, 2, 8, 3, 4]), 7, "Exercise 63");
     assert(maxMinusMin([1, 1, 2, 3, 9]), 8, "Exercise 63");
@@ -1008,7 +1009,13 @@ function median(value) {
 
 // Exercise 64
 // Write a function definition named productOfAll that takes in sequence of numbers and returns the product of multiplying all the numbers together
-
+function productOfAll(value){
+    var prod=1;
+    for (var i=0; i<value.length; i++) {
+        prod = prod * value[i];
+    }
+    return prod;
+}
     assert(productOfAll([1, 2, 3]), 6, "Exercise 64");
     assert(productOfAll([3, 4, 5]), 60, "Exercise 64");
     assert(productOfAll([2, 2, 3, 0]), 0, "Exercise 64");
@@ -1017,7 +1024,9 @@ function median(value) {
 
 // Exercise 65
 // Write a function definition named getHighestNumber that takes in sequence of numbers and returns the largest number.
-
+function getHighestNumber(value) {
+        return Math.max.apply(null, value)
+}
 
     assert(getHighestNumber([1, 2, 3]), 3, "Exercise 65");
     assert(getHighestNumber([1, 5, 2, 3, 4]), 5, "Exercise 65");
@@ -1027,7 +1036,9 @@ function median(value) {
 
 // Exercise 66
 // Write a function definition named getSmallestNumber that takes in sequence of numbers and returns the smallest number.
-
+function getSmallestNumber(value) {
+        return Math.min.apply(null, value)
+}
 
     assert(getSmallestNumber([1, 2, 3]), 1, "Exercise 66");
     assert(getSmallestNumber([3, 5, 9, 8, 1]), 1, "Exercise 66");
@@ -1037,7 +1048,9 @@ function median(value) {
 
 // Exercise 67
 // Write a function definition named onlyOddNumbers that takes in sequence of numbers and returns the odd numbers in an array.
-
+function onlyOddNumbers(value) {
+        return value.filter(value => value % 2)
+}
     assert(onlyOddNumbers([1, 2, 3]), [1, 3], "Exercise 67");
     assert(onlyOddNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]), [-5, -3, -1, 1, 3, 5], "Exercise 67");
     assert(onlyOddNumbers([-4, -3, 1]), [-3, 1], "Exercise 67");
@@ -1046,7 +1059,9 @@ function median(value) {
 
 // Exercise 68
 // Write a function definition named onlyEvenNumbers that takes in sequence of numbers and returns the even numbers in an array.
-
+function onlyEvenNumbers(value) {
+        return value.filter(value => value % 2===0)
+}
     assert(onlyEvenNumbers([1, 2, 3]), [2], "Exercise 68");
     assert(onlyEvenNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]), [-4, -2, 2, 4], "Exercise 68");
     assert(onlyEvenNumbers([-4, -3, 1]), [-4], "Exercise 68");
@@ -1055,7 +1070,9 @@ function median(value) {
 
 // Exercise 69
 // Write a function definition named onlyPositiveNumbers that takes in sequence of numbers and returns the positive numbers in an array.
-
+function onlyPositiveNumbers(value) {
+        return value.filter(value => value > 0)
+}
     assert(onlyPositiveNumbers([1, 2, 3]), [1, 2, 3], "Exercise 69");
     assert(onlyPositiveNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]), [1, 2, 3, 4, 5], "Exercise 69");
     assert(onlyPositiveNumbers([-4, -3, 1]), [1], "Exercise 69");
@@ -1064,7 +1081,9 @@ function median(value) {
 
 // Exercise 70
 // Write a function definition named onlyNegativeNumbers that takes in sequence of numbers and returns the negative numbers in an array.
-
+function onlyNegativeNumbers(value) {
+        return value.filter(value => value < 0)
+}
     assert(onlyNegativeNumbers([1, 2, 3]), [], "Exercise 70");
     assert(onlyNegativeNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]), [-5, -4, -3, -2, -1], "Exercise 70");
     assert(onlyNegativeNumbers([-4, -3, 1]), [-4, -3], "Exercise 70");
@@ -1073,7 +1092,13 @@ function median(value) {
 
 // Exercise 71
 // Write a function definition named hasEvens that takes in sequence of numbers and returns true if there are any even numbers in the sequence
-
+function hasEvens(value) {
+    if (value.some(value => value % 2 === 0 )) {
+        return true
+    } else {
+        return false
+    }
+}
     assert(hasEvens([1, 2, 3]), true, "Exercise 71");
     assert(hasEvens([2, 5, 6]), true, "Exercise 71");
     assert(hasEvens([3, 3, 3]), false, "Exercise 71");
@@ -1083,6 +1108,9 @@ function median(value) {
 
 // Exercise 72
 // Write a function definition named countEvens that takes in sequence of numbers and returns the number of even numbers
+function countEvens(value) {
+
+}
 
     assert(countEvens([1, 2, 3]), 1, "Exercise 72");
     assert(countEvens([2, 5, 6]), 2, "Exercise 72");
