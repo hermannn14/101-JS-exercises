@@ -1108,8 +1108,14 @@ function hasEvens(value) {
 
 // Exercise 72
 // Write a function definition named countEvens that takes in sequence of numbers and returns the number of even numbers
-function countEvens(value) {
-
+function countEvens(arrayOfNumbers) {
+    var Evens = 0
+    for (let i = 0; i < arrayOfNumbers.length; i++) {
+        if (isEven(arrayOfNumbers[i])) {
+            Evens++
+        }
+    }
+    return Evens
 }
 
     assert(countEvens([1, 2, 3]), 1, "Exercise 72");
@@ -1121,7 +1127,13 @@ function countEvens(value) {
 
 // Exercise 73
 // Write a function definition named hasOdds that takes in sequence of numbers and returns true if there are any odd numbers in the sequence
-
+function hasOdds(value) {
+    if (value.some(value => value % 2 != 0 )) {
+        return true
+    } else {
+        return false
+    }
+}
     assert(hasOdds([1, 2, 3]), true, "Exercise 73");
     assert(hasOdds([2, 5, 6]), true, "Exercise 73");
     assert(hasOdds([3, 3, 3]), true, "Exercise 73");
@@ -1131,7 +1143,15 @@ function countEvens(value) {
 
 // Exercise 74
 // Write a function definition named countOdds that takes in sequence of numbers and returns a count of the any odd numbers in the sequence
-
+function countOdds(arrayOfNumbers) {
+    var Odds = 0
+    for (let i = 0; i < arrayOfNumbers.length; i++) {
+        if (isOdd(arrayOfNumbers[i])) {
+            Odds++
+        }
+    }
+    return Odds
+}
     assert(countOdds([1, 2, 3]), 2, "Exercise 74");
     assert(countOdds([2, 5, 6]), 1, "Exercise 74");
     assert(countOdds([3, 3, 3]), 3, "Exercise 74");
@@ -1141,7 +1161,15 @@ function countEvens(value) {
 
 // Exercise 75
 // Write a function definition named countNegatives that takes in sequence of numbers and returns a count of the number of negative numbers
-
+function countNegatives(arrayOfNumbers) {
+        var Negatives = 0
+    for (let i = 0; i < arrayOfNumbers.length; i++) {
+        if (isNegative(arrayOfNumbers[i])) {
+            Negatives++
+        }
+    }
+    return Negatives
+}
     assert(countNegatives([1, -2, 3]), 1, "Exercise 75");
     assert(countNegatives([2, -5, -6]), 2, "Exercise 75");
     assert(countNegatives([3, 3, 3]), 0, "Exercise 75");
@@ -1150,7 +1178,15 @@ function countEvens(value) {
 
 // Exercise 76
 // Write a function definition named countPositives that takes in sequence of numbers and returns a count of the number of positive numbers
-
+function countPositives(arrayOfNumbers) {
+        var Positives = 0
+    for (let i = 0; i < arrayOfNumbers.length; i++) {
+        if (isPositive(arrayOfNumbers[i])) {
+            Positives++
+        }
+    }
+    return Positives
+}
     assert(countPositives([1, -2, 3]), 2, "Exercise 76");
     assert(countPositives([2, -5, -6]), 1, "Exercise 76");
     assert(countPositives([3, 3, 3]), 3, "Exercise 76");
@@ -1159,8 +1195,12 @@ function countEvens(value) {
 
 
 // Exercise 77
-// Write a function definition named onlyPositiveEvens that takes in sequence of numbers and returns an array containing all the positive evens from the sequence
-
+// Write a function definition named onlyPositiveEvens that takes in sequence of numbers and returns an array containing
+// all the positive evens from the sequence
+function onlyPositiveEvens(arrayOfNumbers) {
+    var positiveEvens = arrayOfNumbers.filter(element => element % 2 === 0 && element > 0);
+    return positiveEvens;
+}
     assert(onlyPositiveEvens([1, -2, 3]), [], "Exercise 77");
     assert(onlyPositiveEvens([2, -5, -6]), [2], "Exercise 77");
     assert(onlyPositiveEvens([3, 3, 4, 6]), [4, 6], "Exercise 77");
@@ -1170,7 +1210,10 @@ function countEvens(value) {
 
 // Exercise 78
 // Write a function definition named onlyPositiveOdds that takes in sequence of numbers and returns an array containing all the positive odd numbers from the sequence
-
+function onlyPositiveOdds(arrayOfNumbers) {
+        var positiveOdds = arrayOfNumbers.filter(element => element % 2 != 0 && element > 0)
+    return positiveOdds
+}
     assert(onlyPositiveOdds([1, -2, 3]), [1, 3], "Exercise 78");
     assert(onlyPositiveOdds([2, -5, -6]), [], "Exercise 78");
     assert(onlyPositiveOdds([3, 3, 4, 6]), [3, 3], "Exercise 78");
@@ -1180,7 +1223,10 @@ function countEvens(value) {
 
 // Exercise 79
 // Write a function definition named onlyNegativeEvens that takes in sequence of numbers and returns an array containing all the negative even numbers from the sequence
-
+function onlyNegativeEvens(arrayOfNumbers) {
+        var NegativeEvens = arrayOfNumbers.filter(element => element % 2 === 0 && element < 0)
+    return NegativeEvens
+}
     assert(onlyNegativeEvens([1, -2, 3]), [-2], "Exercise 79");
     assert(onlyNegativeEvens([2, -5, -6]), [-6], "Exercise 79");
     assert(onlyNegativeEvens([3, 3, 4, 6]), [], "Exercise 79");
@@ -1190,7 +1236,10 @@ function countEvens(value) {
 
 // Exercise 80
 // Write a function definition named onlyNegativeOdds that takes in sequence of numbers and returns an array containing all the negative odd numbers from the sequence
-
+function onlyNegativeOdds(arrayOfNumbers) {
+        var NegativeOdds = arrayOfNumbers.filter(element => element % 2 !== 0 && element < 0)
+    return NegativeOdds
+}
     assert(onlyNegativeOdds([1, -2, 3]), [], "Exercise 80");
     assert(onlyNegativeOdds([2, -5, -6]), [-5], "Exercise 80");
     assert(onlyNegativeOdds([3, 3, 4, 6]), [], "Exercise 80");
@@ -1200,7 +1249,10 @@ function countEvens(value) {
 
 // Exercise 81
 // Write a function definition named shortestString that takes in an array of strings and returns the shortest string in the array.
-
+function shortestString(arrayOfNumbers) {
+    var shortString = arrayOfNumbers.reduce((a,b) => a.length <= b.length ? a : b);
+    return shortString;
+}
     assert(shortestString(["kiwi", "mango", "strawberry"]), "kiwi", "Exercise 81");
     assert(shortestString(["hello", "everybody"]), "hello", "Exercise 81");
     assert(shortestString(["mary", "had", "a", "little", "lamb"]), "a", "Exercise 81");
@@ -1209,7 +1261,10 @@ function countEvens(value) {
 
 // Exercise 82
 // Write a function definition named longestString that takes in sequence of strings and returns the longest string in the array.
-
+function longestString(arrayOfNumbers) {
+        var longString = arrayOfNumbers.reduce((a,b) => a.length >= b.length ? a : b)
+    return longString;
+}
     assert(longestString(["kiwi", "mango", "strawberry"]), "strawberry", "Exercise 82");
     assert(longestString(["hello", "everybody"]), "everybody", "Exercise 82");
     assert(longestString(["mary", "had", "a", "little", "lamb"]), "little", "Exercise 82");
@@ -1218,7 +1273,10 @@ function countEvens(value) {
 
 // Exercise 83
 // Write a function definition named getUniqueValues that takes in an array and returns an with only the unique values from that array.
-
+function getUniqueValues(arrayOfNumbers) {
+    var uniqueValues = arrayOfNumbers.filter((item, index) => arrayOfNumbers.indexOf(item) === index);
+    return uniqueValues;
+}
     assert(getUniqueValues(["ant", "ant", "mosquito", "mosquito", "ladybug"]), ["ant", "mosquito", "ladybug"], "Exercise 83");
     assert(getUniqueValues(["b", "a", "n", "a", "n", "a", "s"]), ["b", "a", "n", "s"], "Exercise 83");
     assert(getUniqueValues(["mary", "had", "a", "little", "lamb", "little", "lamb", "little", "lamb"]), ["mary", "had", "a", "little", "lamb"], "Exercise 83");
@@ -1227,7 +1285,10 @@ function countEvens(value) {
 
 // Exercise 84
 // Write a function definition named elementsTimesTwo that takes in an array of numbers and returns an array with each value multiplied by 2.
-
+function elementsTimesTwo(arrayOfNumbers) {
+    var Multi = arrayOfNumbers.map(x => x * 2);
+    return Multi;
+}
 
     assert(elementsTimesTwo([1, 2, 3]), [2, 4, 6], "Exercise 84")
     assert(elementsTimesTwo([0, 0, 0]), [0, 0, 0], "Exercise 84")
@@ -1237,7 +1298,10 @@ function countEvens(value) {
 
 // Exercise 85
 // Write a function named flatten that takes in an array of arrays. Return the flattened array.
-
+function flatten(arrayOfNumbers) {
+    var flatValue = arrayOfNumbers.reduce((a,b) => a.concat(b));
+    return flatValue;
+}
 
     assert(flatten([[1, 2], [3, 4], [5, 6]]), [1, 2, 3, 4, 5, 6], "Exercise 85");
     assert(flatten([[1, 2, 3], [1, 2, 3], [1, 2, 3]]), [1, 2, 3, 1, 2, 3, 1, 2, 3], "Exercise 85");
@@ -1247,7 +1311,10 @@ function countEvens(value) {
 
 // Exercise 86
 // Write a function definition named addOneToArray that adds one to every number in an array
-
+function addOneToArray(arrayOfNumbers) {
+    var addOne = arrayOfNumbers.map(x => x+1);
+    return addOne;
+}
     assert(addOneToArray([1, 2, 3]), [2, 3, 4], "Exercise 86");
     assert(addOneToArray([4, 4, 4]), [5, 5, 5], "Exercise 86");
     assert(addOneToArray([9, 10, 11]), [10, 11, 12], "Exercise 86");
@@ -1274,7 +1341,10 @@ function countEvens(value) {
 
 // Exercise 87
 // Write a function named getPaperTitle that takes in a object and returns the title property
-
+function getPaperTitle(value) {
+    var paperTitle = value.title;
+    return paperTitle;
+}
     assert(getPaperTitle(tukeyPaper), "The Future of Data Analysis", "Exercise 87");
     assert(getPaperTitle(thomasPaper), "A mathematical model of glutathione metabolism", "Exercise 87");
     addToDone("Exercise 87 is correct.")
@@ -1282,7 +1352,10 @@ function countEvens(value) {
 
 // Exercise 88
 // Write a function named getYearPublished that takes in an objects and returns the value behind the "year_published" key.
-
+function  getYearPublished(value) {
+    var yearPub = value.year_published;
+    return yearPub;
+}
     assert(getYearPublished(tukeyPaper), 1962, "Exercise 88");
     assert(getYearPublished(thomasPaper), 2008, "Exercise 88");
     addToDone("Exercise 88 is correct.")
@@ -1297,14 +1370,20 @@ function countEvens(value) {
 
 // Exercise 89
 // Write a function named getPrice that takes in a object and returns the price
-
+function getPrice(value) {
+    var price = value.price;
+    return price;
+}
     assert(getPrice(book), 36.99, "Exercise 89");
     addToDone("Exercise 89 is complete.")
 
 
 // Exercise 90
 // Write a function named getBookAuthor that takes in a object (the above declared book variable) and returns the author's name
-
+function getBookAuthor(value) {
+    var bookAuthor = value.author;
+    return bookAuthor;
+}
 
     assert(getBookAuthor(book), "Frances Buontempo", "Exercise 90");
     addToDone("Exercise 90 is complete.")
@@ -1339,21 +1418,34 @@ function countEvens(value) {
 
 // Exercise 91
 // Write a function named getNumberOfBooks that takes in a array of objects and returns the number of objects in that array.
-
+function getNumberOfBooks(value) {
+    var numBooks = value.length;
+    return numBooks;
+}
     assert(getNumberOfBooks(books), 4, "Exercise 91");
     addToDone("Exercise 91 is complete.")
 
 
 // Exercise 92
 // Write a function named totalOfBookPrices that takes in a array of objects and returns the sum total of all the book prices added together
-
+function totalOfBookPrices(value) {
+    var sum = 0;
+    for (var i = 0; i < value.length; i ++){
+        sum += value[i].price;
+    } return sum;
+}
     assert(totalOfBookPrices(books), 122.9, "Exercise 92")
     addToDone("Exercise 92 is complete.")
 
 
 // Exercise 93
 // Write a function named getAverageBookPrice that takes in a array of objects and returns the average book price.
-
+function getAverageBookPrice(value) {
+    var sum = 0;
+    for (var i = 0; i < value.length; i ++){
+        sum += value[i].price;
+    } return sum/value.length;
+}
     assert(getAverageBookPrice(books), 30.725, "Exercise 93");
     addToDone("Exercise 93 is complete.")
 
@@ -1361,6 +1453,13 @@ function countEvens(value) {
 // Exercise 94
 // Write a function called highestPriceBook that takes in the above defined array of objects "books" and returns the object containing the title, price, and author of the book with the highest priced book.
 // Hint: Much like sometimes start functions with a variable set to zero, you may want to create a object with the price set to zero to compare to each object's price in the array
+function highestPriceBook(bookValue) {
+    function mostExpensive(bookValue) {
+        return bookValue.sort((a, b) => b.price - a.price);
+    }
+
+    return mostExpensive(books)[0];
+}
 
     assert(highestPriceBook(books), {
         "title": "The Visual Display of Quantitative Information",
@@ -1374,6 +1473,13 @@ function countEvens(value) {
 // Exercise 95
 // Write a function called lowestPriceBook that takes in the above defined array of objects "books" and returns the object containing the title, price, and author of the book with the lowest priced book.
 // Hint: Much like sometimes start functions with a variable set to zero or float('inf'), you may want to create a object with the price set to float('inf') to compare to each object in the array
+function lowestPriceBook(value) {
+        function leastExpensive(bookValue) {
+    return bookValue.sort((a, b) => a.price - b.price);
+}
+
+return leastExpensive(books)[0];
+}
 
 
     assert(lowestPriceBook(books), {
@@ -1419,7 +1525,9 @@ function countEvens(value) {
 // Exercise 96
 // Write a function named getTaxRate that takes in the above shopping cart as input and returns the tax rate.
 // Hint: How do you access a key's value on a object? The tax rate is one key of the entire shoppingCart object.
-
+function getTaxRate(value) {
+        return value.tax
+}
     assert(getTaxRate(shoppingCart), .08, "Exercise 96");
     addToDone("Exercise 96 is complete")
 
@@ -1427,6 +1535,10 @@ function countEvens(value) {
 // Exercise 97
 // Write a function named numberOfItemTypes that takes in the shopping cart as input and returns the number of unique item types in the shopping cart. 
 // We're not yet using the quantity of each item, but rather focusing on determining how many different types of items are in the cart.
+function numberOfItemTypes(shoppingCart) {
+        return shoppingCart.items.length
+}
+
 
     assert(numberOfItemTypes(shoppingCart), 5, "Exercise 97");
     addToDone("Exercise 97 is complete.")
@@ -1435,7 +1547,9 @@ function countEvens(value) {
 // Exercise 98
 // Write a function named totalNumberOfItems that takes in the shopping cart as input and returns the total number all item quantities.
 // This should return the sum of all of the quantities from each item type
-
+function totalNumberOfItems(shoppingCart) {
+    return shoppingCart.items.quantity.length
+}
     assert(totalNumberOfItems(shoppingCart), 17, "Exercise 98");
     addToDone("Exercise 98 is complete.")
 
